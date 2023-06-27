@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.codingchallange.models.Lf" />
+
+        <variable
+            name="itemClickListener"
+            type="com.example.codingchallange.adapters.CustomClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{() -> itemClickListener.cardClicked(model)}"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFrequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.lf}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAndroidVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(model.since)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFrequency" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
